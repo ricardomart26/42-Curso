@@ -1,0 +1,11 @@
+O que é um endereço IP?
+
+Qual a diferença entre IP publico e privado?
+
+O que é uma classe de endereço IP?
+
+Quais são as regras para 2 computadores comunicarem por endereço IP?
+
+Como é que o routing trabalha com o IP?
+
+O que é um porto de um IP, e porque é usado para conectar a outro dispositivo

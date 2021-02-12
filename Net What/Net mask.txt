@@ -1,0 +1,9 @@
+O que é um netmask?
+
+O que é uma subnet de um IP com a netmask?
+
+O que é o broadcast endereço de uma subnet?
+
+Que maneiras diferentes de maneiras diferentes um endereço IP com a Netmask?
+
+Broadcast - difusão, transmissão
