@@ -1,5 +1,9 @@
 NAME 	= 	libft.a
 
+CC = gcc
+
+CFLAGS = -Wall -Werror -Wextra
+
 SRC		= 	ft_atoi.c \
 			ft_bzero.c \
 			ft_calloc.c \
@@ -52,19 +56,31 @@ OBJBON 	= $(SRCBON:.c=.o)
 all: $(NAME)
 
 $(NAME) : $(OBJ) # Ar e para criar um arquivo
-			ar rcs $@ $^
-# -rcs
+			ar -rcs $@ $^
 
 bonus: $(OBJBON) $(OBJ)
-			ar rcs $@ $^
+			ar -rcs $@ $^
 
 
 clean: # Vai limpar os object files
 			rm -rf $(OBJ)
 
 fclean: clean # Vai limpar tudo
-			rm -f $(NAME)
+			rm -f $(NAME)-
 
 re: fclean $(NAME)
+
+rebonus: fclean bonus
+
+
+
+# TESTAR E DEPOIS APAGAR
+
+run: bonus
+	sh ./test/run.sh
+
+so:
+	$(CC) -fPIC $(CFLAGS) $(SRC)
+	gcc -shared -o libft.so $(OBJ)
 
 .PHONY: all, clean, fclean, re	#Para dizer que nao é um ficheiro
