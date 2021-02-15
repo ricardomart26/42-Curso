@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:36:40 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/13 13:36:59 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/15 13:49:45 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_toupper(int c)
 {
-	if (c >= 'a' || c <= 'z')
+	if (c >= 'a' && c <= 'z')
 		return (c - 32);
 	else
 		return (c);

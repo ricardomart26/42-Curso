@@ -1,9 +1,5 @@
 NAME 	= 	libft.a
 
-CC = gcc
-
-CFLAGS = -Wall -Werror -Wextra
-
 SRC		= 	ft_atoi.c \
 			ft_bzero.c \
 			ft_calloc.c \
@@ -52,21 +48,24 @@ SRCBON 	=  ft_lstadd_back.c \
 
 OBJ 	= $(SRC:.c=.o) # OBJ é igual aos ficheiros no SRC com a extensao .o
 OBJBON 	= $(SRCBON:.c=.o)
+CC = gcc
+HEADER = libft.h
+CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
 $(NAME) : $(OBJ) # Ar e para criar um arquivo
-			ar -rcs $@ $^
+			ar rcs $@ $^
 
 bonus: $(OBJBON) $(OBJ)
-			ar -rcs $@ $^
+			ar rcs $@ $^
 
 
 clean: # Vai limpar os object files
-			rm -rf $(OBJ)
+			rm -rf $(OBJ) $(OBJBON)
 
 fclean: clean # Vai limpar tudo
-			rm -f $(NAME)-
+			rm -f $(NAME)
 
 re: fclean $(NAME)
 

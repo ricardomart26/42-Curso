@@ -6,11 +6,11 @@
 # include <stdbool.h>
 # include <stdio.h>
 
-typedef struct s_list
+typedef struct  s_list
 {
   int content;
   struct s_list *next;
-}              t_list;
+}               t_list;
 
 int ft_atoi(const char *nptr);
 void ft_bzero(void *s, size_t n);

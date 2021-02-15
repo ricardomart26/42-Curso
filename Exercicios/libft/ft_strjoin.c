@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:41:27 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/13 14:46:06 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/15 17:31:11 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,28 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
-	int		c;
-	int		j;
 
 	str = (char *)malloc(sizeof(*s1) + sizeof(*s2) + 1);
 	if (!str)
 		return (NULL);
-	c = 0;
-	while (s1[c] != '\0')
+	while (*s1)
 	{
-		str[c] = s1[c];
-		c++;
+		*str = *s1;
+		str++;
+		s1++;
 	}
-	j = 0;
-	while (s2[j] != '\0')
+	while (*s2)
 	{
-		str[c] = s2[j];
-		c++;
-		j++;
+		*str = *s2;
+		str++;
+		s2++;
 	}
-	str[c] = 0;
+	*str = '\0';
 	return (str);
+}
+
+int main(void)
+{
+	char *str = ft_strjoin("O ricardo", " e o maior");
+	printf("%s", str);
 }

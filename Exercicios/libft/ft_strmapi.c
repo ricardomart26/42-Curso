@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:40:58 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/13 15:21:17 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/15 13:05:07 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*str;
 	int		size_str;
 
-	size_str = ft_strlen(s);
+	size_str = ft_strlen((char *)s);
 	str = (char *)malloc(size_str + 1);
 	if (!str)
 		return (NULL);

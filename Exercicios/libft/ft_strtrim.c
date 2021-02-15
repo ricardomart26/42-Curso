@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:30:53 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/13 16:44:57 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/15 13:16:13 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,19 @@
 int		start(char *str, char const *set, char *reverse_str)
 {
 	int		c;
-	char	*reverse;
 	int		size;
 
 	c = 0;
 	size = 0;
 	while (*set)
 	{
-		if (*str == *set)
+		if (*(str++) == *set)
 		{
-			str++;
-			size++;
 			set -= c;
 			c = 0;
 		}
-		if (*reverse_str == *set)
+		if (*(reverse_str++) == *set)
 		{
-			str++;
 			size++;
 			set -= c;
 			c = 0;
@@ -50,8 +46,14 @@ char	*reverse_string(char *str)
 
 	c = 0;
 	i = -1;
+	reverse = NULL;
 	while (*str)
-		reverse[c++] = str[i--];
+	{
+		reverse[c] = str[i];
+		i--;
+		c++;
+	}
+	reverse[c] = '\0';
 	return (reverse);
 }
 
@@ -80,6 +82,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	c = -1;
 	while (c++ < size)
-		*str++ = *s1++;
+		*(str++) = *(s1++);
 	return (str);
 }

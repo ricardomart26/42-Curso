@@ -36,6 +36,6 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	while (src[i] != 0 && space_left-- > 1)
 		dest[j++] = src[i++];
 	dest_size = j;
-	dest[dest_size + 1] = '\0';
+	dest[dest_size] = '\0';
 	return (src_size + dest_size);
 }

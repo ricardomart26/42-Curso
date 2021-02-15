@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:19:34 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/13 13:35:26 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/15 18:12:21 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	int c;
-	char *temp;
+	int		c;
+	char	*temp;
 
-	c = 0;
 	temp = (char *)s;
-	while (c++ < n)
+	if (!s)
+		return ;
+	c = 0;
+	while (c < (int)n)
+	{
 		temp[c] = '\0';
+		c++;
+	}
 }

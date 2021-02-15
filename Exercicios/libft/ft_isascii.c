@@ -6,13 +6,13 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:43:38 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/13 13:44:12 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/15 10:49:01 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);

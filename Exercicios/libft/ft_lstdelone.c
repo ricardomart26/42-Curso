@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 16:08:38 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/12 17:21:47 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/15 13:47:03 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (lst != NULL)
 	{
-		del(lst->content);
+		del(lst);
 		free(lst);
 	}
 }
