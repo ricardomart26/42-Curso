@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:02:41 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/15 13:15:14 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/16 12:24:30 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@ char	*ft_strrchr(const char *s, int c)
 	char	*ptr;
 
 	size = 0;
-	while ((char)s[size])
-		size++;
-	ptr = (char *)malloc(sizeof(char *) * 9);
 	ptr = (char *)s;
-	while (0 < size)
-	{
-		if (*ptr == (char)c)
+	while (s[size])
+		size++;
+	if (c == '\0')
+		return ((char *)s + size);
+	while (0 < size--)
+		if (ptr[size] == (char)c)
 			return ((char *)s + size);
-		size--;
-	}
 	return (0);
 }

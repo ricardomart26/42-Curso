@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:41:05 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/13 14:54:46 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/16 14:51:24 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,5 @@ int	ft_strlen(char *str)
 	c = 0;
 	while (str[c] != '\0')
 		c++;
-
 	return (c);
 }

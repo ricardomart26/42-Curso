@@ -6,26 +6,27 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:41:32 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/13 16:29:01 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/16 13:33:39 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *s1)
 {
 	char	*dup;
 	int		size;
 
-	size = ft_strlen((char *)s);
+	size = ft_strlen((char *)s1);
 	dup = (char *)malloc(size + 1);
 	if (!dup)
 		return (NULL);
-	while (*s)
+	while (*s1)
 	{
-		dup = (char *)s;
-		s++;
+		*dup = *(char *)s1;
+		s1++;
 		dup++;
 	}
 	return (dup - size);
+	free(dup);
 }

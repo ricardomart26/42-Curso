@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:42:26 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/15 13:27:54 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/16 13:39:00 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		d[c] = s[c];
 		c++;
 	}
-
 	return (dest);
 }
