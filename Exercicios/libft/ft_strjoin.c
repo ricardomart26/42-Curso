@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:41:27 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/16 14:11:14 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/16 16:43:00 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (*s2)
 		*str++ = *s2++;
 	*str = '\0';
-	return (str);
+	return (str - sizetotal);
 }

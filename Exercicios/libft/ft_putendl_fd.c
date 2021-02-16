@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:42:04 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/13 14:45:20 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/16 16:59:17 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	while (*s)
-	{
-		write(fd, s, 1);
-		s++;
-	}
-	write(1, "\n", 1);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

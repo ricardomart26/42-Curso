@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:30:53 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/16 16:11:02 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/16 16:56:29 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,6 @@ int	returni(char const *set, char const *s1)
 	return (i);
 }
 
-int	ft_strlen(char *str)
-{
-	int c;
-
-	c = 0;
-	while (str[c] != '\0')
-		c++;
-	return (c);
-}
-
 char	*reverse_string(char *str)
 {
 	int		c;
@@ -77,6 +67,7 @@ char	*reverse_string(char *str)
 	c = 0;
 	i = -1;
 	size = ft_strlen(str);
+	reverse = NULL;
 	while (size < 0)
 	{
 		reverse[c] = str[size - 1];
@@ -107,13 +98,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 	}
 	return (str);
-}
-
-int main(void)
-{
-	char *str;
-
-	str = ft_strtrim(" Ricardo ", " ");
-	printf("%s", str);
-	return (0);
 }

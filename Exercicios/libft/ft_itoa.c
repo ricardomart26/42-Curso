@@ -6,22 +6,12 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:43:15 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/15 19:32:15 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/16 16:23:00 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-
-static int	last_number(int n)
-{
-	if (n > 10)
-	{
-		n %= 10;
-		return (n);
-	}
-	return (n);
-}
 
 static int	count_unidades(int n)
 {
@@ -59,7 +49,7 @@ char		*ft_itoa(int n)
 		return (0);
 	while (0 < size_str)
 	{
-		str[size_str--] = last_number(n) + '0';
+		str[size_str--] = (n % 10) + '0';
 		n /= 10;
 	}
 	if (minus == 1)
