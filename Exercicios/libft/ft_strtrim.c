@@ -6,11 +6,21 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:30:53 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/16 16:56:29 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/16 17:42:51 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	ft_strlen(char *str)
+{
+	int c;
+
+	c = 0;
+	while (str[c] != '\0')
+		c++;
+	return (c);
+}
 
 int		start(char *str, char const *set, char *reverse_str)
 {
@@ -28,7 +38,7 @@ int		start(char *str, char const *set, char *reverse_str)
 			j++;
 			i = 0;
 		}
-		else if (reverse_str[c] == set[i])
+		if (reverse_str[c] == set[i])
 		{
 			c++;
 			i = 0;
@@ -98,4 +108,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 	}
 	return (str);
+}
+
+int main(void)
+{
+	printf("%s", ft_strtrim(" Ricardo ", " "));
 }
