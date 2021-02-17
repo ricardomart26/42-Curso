@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:43:15 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/16 16:23:00 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/17 20:04:48 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	count_unidades(int n)
 	return (unidades);
 }
 
-void		convert_number(int *minus, int *n)
+void		convert_number(size_t *minus, int *n)
 {
 	*minus = 1;
 	*n *= -1;
@@ -37,7 +37,7 @@ char		*ft_itoa(int n)
 	char	*str;
 	int		size_str;
 	int		temp;
-	int		minus;
+	size_t	minus;
 
 	minus = 0;
 	if (n < 0)

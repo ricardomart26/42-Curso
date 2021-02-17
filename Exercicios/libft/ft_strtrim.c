@@ -6,111 +6,71 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:30:53 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/16 17:42:51 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/17 14:23:23 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+void		startfunct(char const *str, char const *set, size_t *start)
 {
-	int c;
-
-	c = 0;
-	while (str[c] != '\0')
-		c++;
-	return (c);
-}
-
-int		start(char *str, char const *set, char *reverse_str)
-{
-	int		c;
-	int		i;
-	int		j;
+	size_t	i;
 
 	i = 0;
-	c = 0;
-	j = 0;
+	*start = 0;
 	while (set[i])
 	{
-		if (str[j] == set[i])
+		if (str[*start] == set[i])
 		{
-			j++;
-			i = 0;
-		}
-		if (reverse_str[c] == set[i])
-		{
-			c++;
-			i = 0;
+			(*start)++;
+			i = -1;
 		}
 		i++;
 	}
-	return (c + j);
+	return ;
 }
 
-int	returni(char const *set, char const *s1)
+void		endfunct(char const *str, char const *set, size_t *end)
 {
-	int i;
-	int c;
+	size_t	i;
 
 	i = 0;
-	c = 0;
-	while (set[c])
+	*end = ft_strlen((char *)str) - 1;
+	while (set[i])
 	{
-		if (s1[i] == set[c])
+		if (str[*end] == set[i])
 		{
-			i++;
-			c = 0;
+			(*end)--;
+			i = -1;
 		}
-		c++;
+		i++;
 	}
-	return (i);
-}
-
-char	*reverse_string(char *str)
-{
-	int		c;
-	int		i;
-	int		size;
-	char	*reverse;
-
-	c = 0;
-	i = -1;
-	size = ft_strlen(str);
-	reverse = NULL;
-	while (size < 0)
-	{
-		reverse[c] = str[size - 1];
-		c++;
-		size--;
-	}
-	return (reverse);
+	return ;
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	size_t	start;
+	size_t	end;
+	size_t	i;
 	char	*str;
-	char	*reverse;
-	int		size;
-	int		c;
-	int		i;
 
-	c = 0;
-	i = 0;
-	str = (char *)s1;
-	reverse = reverse_string(str);
-	size = ft_strlen(str) - start(str, set, reverse);
-	str = (char *)malloc(size * sizeof(char));
-	i = returni(set, s1);
-	while (i < size)
+	if (s1 != 0 && set != 0)
 	{
-		str[c++] = s1[i];
-		i++;
+		startfunct(s1, set, &start);
+		endfunct(s1, set, &end);
+		str = malloc(sizeof(char) * (end - start));
+		if (!str)
+			return (NULL);
+		i = 0;
+		while (start <= end)
+		{
+			str[i] = s1[start];
+			i++;
+			start++;
+		}
+		str[i] = '\0';
+		return (str);
 	}
-	return (str);
-}
-
-int main(void)
-{
-	printf("%s", ft_strtrim(" Ricardo ", " "));
+	return (0);
 }

@@ -6,33 +6,35 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:41:18 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/16 12:25:41 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/17 19:29:54 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t i;
-	size_t j;
-	size_t src_size;
-	size_t dest_size;
-	size_t space_left;
+	char	*s;
+	size_t	size_dest;
+	size_t	res;
+	size_t	size_src;
+	size_t	i;
 
+	s = (char *)src;
+	size_dest = ft_strlen(dst);
+	size_src = ft_strlen(s);
+	res = 0;
 	i = 0;
-	dest_size = 0;
-	space_left = size;
-	src_size = ft_strlen((char *)src);
-	while (dest[dest_size] != '\0' && space_left-- != 0)
-		dest_size++;
-	space_left = size - dest_size;
-	if (space_left == 0)
-		return (size + dest_size);
-	i = 0;
-	j = dest_size;
-	while (src[i] != 0 && space_left-- > 1)
-		dest[j++] = src[i++];
-	dest[j] = '\0';
-	return (src_size + dest_size);
+	if (size > size_dest)
+		res = size_src + size_dest;
+	else
+		res = size_src + size;
+	while (s[i] && (size_dest + 1) < size)
+	{
+		dst[size_dest++] = s[i++];
+		size_dest++;
+		i++;
+	}
+	dst[size_dest] = '\0';
+	return (res);
 }

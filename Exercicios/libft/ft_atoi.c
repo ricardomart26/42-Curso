@@ -6,52 +6,37 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:18:06 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/16 14:27:26 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/17 20:01:01 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	is_number(const char *str)
+int	ft_atoi(const char *str)
 {
-	if (*str >= '0' && *str <= '9')
-		return (1);
-	else
-		return (0);
-}
+	int			sign;
+	long long	res;
 
-static int	iswhitespace(char c)
-{
-	if (c == ' ' || c == '\n' || c == '\t' || c == '\v'
-			|| c == '\f' || c == '\r')
-		return (1);
-	else
-		return (0);
-}
-
-int			ft_atoi(const char *nptr)
-{
-	long int	temp;
-	int			minus;
-
-	minus = 0;
-	temp = 0;
-	while (iswhitespace(*nptr))
-		nptr++;
-	while (*nptr == '-')
+	sign = 1;
+	res = 0;
+	while (*str == '\t' || *str == '\n' || *str == '\v'
+			|| *str == '\f' || *str == '\r' || *str == ' ')
+		str++;
+	if (*str == '-')
 	{
-		minus = 1;
-		nptr++;
+		sign *= -1;
+		str++;
 	}
-	if (!is_number(nptr) && !*nptr)
-		return (0);
-	while (is_number(nptr))
+	else if (*str == '+')
+		str++;
+	while ('0' <= *str && *str <= '9')
 	{
-		temp *= 10;
-		temp += *nptr - 48;
-		nptr++;
+		res *= 10;
+		res += (sign * (*(str++) - '0'));
+		if (res > 2147483647)
+			return (-1);
+		if (res < -2147483648)
+			return (0);
 	}
-	if (minus == 1)
-		temp *= -1;
-	return (temp);
+	return (res);
 }

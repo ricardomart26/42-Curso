@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 19:22:31 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/15 19:23:27 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/17 19:03:18 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char		*str;
+	char	*str;
 	size_t	i;
 	size_t	j;
 
-	str = (char *)malloc(sizeof(*s) * len);
+	str = (char *)malloc(sizeof(char *) * len);
 	if (!str)
 		return (NULL);
 	i = 0;
