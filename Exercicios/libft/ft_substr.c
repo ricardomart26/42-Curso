@@ -35,3 +35,49 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[j] = 0;
 	return (str);
 }
+
+/*
+
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
+{
+	char	*sub;
+	size_t	i;
+
+	sub = ft_strnew(len);
+	if (sub == NULL)
+		return (NULL);
+	s = s + start;
+	i = 0;
+	while (i < len)
+	{
+		sub[i] = s[i];
+		i++;
+	}
+	return (sub);
+}
+
+char
+	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	str = (char*)malloc(sizeof(*s) * (len + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (i >= start && j < len)
+		{
+			str[j] = s[i];
+			j++;
+		}
+		i++;
+	}
+	str[j] = 0;
+	return (str);
+}
+*/

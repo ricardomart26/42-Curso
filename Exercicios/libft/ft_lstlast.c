@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-t_list	*insert_head(t_list **head, t_list *insert)
+static t_list	*insert_head(t_list **head, t_list *insert)
 {
 	insert->next = *head;
 	*head = insert;
 	return (insert);
 }
 
-t_list	*insert_value(int value)
+static t_list	*insert_value(int value)
 {
 	t_list *temp;
 
@@ -29,7 +29,7 @@ t_list	*insert_value(int value)
 	return (temp);
 }
 
-t_list	*ft_lstlast(t_list *lst)
+t_list				*ft_lstlast(t_list *lst)
 {
 	t_list *temp;
 
@@ -42,3 +42,15 @@ t_list	*ft_lstlast(t_list *lst)
 	return (temp);
 }
 
+/*
+t_list	*ft_lstlast(t_list *lst)
+{
+	while (lst)
+	{
+		if (!lst->next)
+			return (lst);
+		lst = lst->next;
+	}
+	return (lst);
+}
+*/

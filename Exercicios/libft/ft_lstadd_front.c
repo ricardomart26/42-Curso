@@ -21,3 +21,17 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	node->next = *lst;
 	*lst = node;
 }
+
+/*
+
+void	ft_lstadd_front(t_list **alst, t_list *new)
+{
+	if (alst)
+	{
+		if (*alst)
+			new->next = *alst;
+		*alst = new;
+	}
+}
+
+*/
