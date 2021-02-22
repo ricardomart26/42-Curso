@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 12:38:45 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/17 17:52:45 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/22 15:18:50 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,24 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	size_needle;
 	size_t	c;
+	size_t	i;
+	char	*ret;
 
-	if (!haystack && len == 0)
-		return (NULL);
-	if (!needle)
-		return ((char *)haystack);
-	while (*haystack)
+	i = 0;
+	ret = (char *)haystack;
+	if (needle[i] == '\0')
+		return (ret);
+	while (ret[i] != '\0' && len > i)
 	{
 		c = 0;
-		size_needle = ft_strlen((char *)needle) - 1;
-		while (*needle == *haystack && len > 0 && *needle == '\0')
+		while (needle[c] == ret[i + c] && (i + c) < len)
 		{
+			if (needle[c + 1] == '\0')
+				return (&ret[i]);
 			c++;
-			needle++;
-			haystack++;
-			size_needle--;
 		}
-		if (size_needle == 0)
-			return ((char *)haystack - c);
-		haystack++;
+		i++;
 	}
 	return (NULL);
 }
-
-/*
-char	*ft_strnstr(const char *haystack, const char *needle, size_t hlen)
-{
-	size_t	nlen;
-	int		lastresult;
-
-	if (*needle == '\0')
-		return ((char*)haystack);
-	nlen = ft_strlen(needle);
-	lastresult = 1;
-	while (nlen <= hlen && *haystack != '\0'
-		&& (lastresult = ft_strncmp(haystack, needle, nlen)))
-	{
-		hlen--;
-		haystack++;
-	}
-	if (lastresult != 0)
-		return (NULL);
-	else
-		return ((char *)haystack);
-}
-*/

@@ -6,65 +6,60 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:43:15 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/17 20:04:48 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/22 17:50:17 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static int	count_unidades(int n)
+int			counter(int n)
 {
-	int		unidades;
+	int len;
 
-	unidades = 1;
-	while (n > 10)
+	len = 0;
+	if (n < 0)
 	{
-		n /= 10;
-		unidades++;
+		n *= -1;
+		len++;
 	}
-	return (unidades);
-}
-
-void		convert_number(size_t *minus, int *n)
-{
-	*minus = 1;
-	*n *= -1;
+	while (n > 0)
+	{
+		len++;
+		n /= 10;
+	}
+	return (len);
 }
 
 char		*ft_itoa(int n)
 {
 	char	*str;
-	int		size_str;
-	int		temp;
-	size_t	minus;
+	int		size;
 
-	minus = 0;
-	if (n < 0)
-		convert_number(&minus, &n);
-	size_str = count_unidades(n);
-	temp = size_str;
-	str = (char *)malloc(sizeof(char) * size_str + minus);
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	size = counter(n);
+	str = malloc(size * sizeof(char) + 1);
 	if (!str)
-		return (0);
-	while (0 < size_str)
+		return (NULL);
+	str[size] = '\0';
+	if (n == 0)
+		str[0] = '0';
+	else if (n < 0)
 	{
-		str[size_str--] = (n % 10) + '0';
-		n /= 10;
+		str[0] = '-';
+		n *= -1;
 	}
-	if (minus == 1)
-		str[size_str] = '-';
-	str[temp + 1] = '\0';
+	while (n > 0)
+	{
+		str[size - 1] = (n % 10) + '0';
+		n /= 10;
+		size--;
+	}
 	return (str);
 }
 
-
 /*
-static int	ft_abs(int nbr)
-{
-	return ((nbr < 0) ? -nbr : nbr);
-}
-
 static void	ft_strrev(char *str)
 {
 	size_t	length;
@@ -104,4 +99,52 @@ char	*ft_itoa(int n)
 	ft_strrev(str);
 	return (str);
 }
+
+
+static int  ft_counter(int n)
+{
+    int         counter;
+    long int    i;
+    counter = 0;
+    i = n;
+    if (i < 0)
+    {
+        counter = 1;
+        i *= -1;
+    }
+    while (i >= 10)
+    {
+        i = (i / 10);
+        counter++;
+    }
+    return (counter + 1);
+}
+char        *ft_itoa(int n)
+{
+    char    *str;
+    int     strsize;
+    strsize = ft_counter(n);
+    if (!(str = malloc(sizeof(char) * (strsize + 1))))
+        return (NULL);
+    str[strsize] = '\0';
+    if (n == -2147483648)
+    {
+        str[0] = '-';
+        str[1] = '2';
+        n = 147483648;
+    }
+    if (n < 0)
+        str[0] = '-';
+    if (n < 0)
+        n *= -1;
+    strsize -= 1;
+    while (n >= 10 && strsize >= 0)
+    {
+        str[strsize--] = (n % 10) + 48;
+        n /= 10;
+    }
+    str[strsize] = n + 48;
+    return (str);
+}
+
 */

@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:43:11 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/13 17:11:48 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/22 18:23:41 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,14 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list *temp;
 
-	temp = malloc(sizeof(t_list));
-	temp = *lst;
-	while (temp->next != NULL)
-		temp = temp->next;
-	if (temp->next == NULL)
+	if (lst)
 	{
-		temp->next = new;
-		new->next = NULL;
-	}
-}
-
-/*
-void	ft_lstadd_back(t_list **alst, t_list *new)
-{
-	t_list	*last;
-
-	if (alst)
-	{
-		if (*alst)
+		if (*lst)
 		{
-			last = ft_lstlast(*alst);
-			last->next = new;
+			temp = ft_lstlast(*lst);
+			temp->next = new;
 		}
 		else
-			*alst = new;
+			*lst = new;
 	}
 }
-*/

@@ -6,12 +6,12 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:42:57 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/13 15:23:02 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/22 17:55:36 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+/*
 static t_list	*insert_head(t_list **head, t_list *insert)
 {
 	insert->next = *head;
@@ -28,6 +28,7 @@ static t_list	*insert_value(int value)
 	temp->next = NULL;
 	return (temp);
 }
+*/
 
 t_list				*ft_lstlast(t_list *lst)
 {

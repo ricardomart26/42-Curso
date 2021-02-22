@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:40:48 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/17 20:11:34 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/19 15:00:27 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (*s1 || *s2 || n == 0)
-		return (0);
-	while (*s1 && *s2 && n-- > 0)
+	while (*s1 && (*s1 == *s2) && n-- > 0)
 	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
+
 		s1++;
 		s2++;
 	}
-	return (0);
+	if (n == 0)
+		return (0);
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

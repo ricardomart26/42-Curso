@@ -8,8 +8,8 @@
 
 typedef struct  s_list
 {
-	int content;
-	struct s_list *next;
+	void			*content;
+	struct s_list	*next;
 }               t_list;
 
 int			ft_atoi(const char *nptr);

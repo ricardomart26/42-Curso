@@ -44,7 +44,7 @@ SRCBON 	=  ft_lstadd_back.c \
 		   ft_lstiter.c \
 		   ft_lstlast.c \
 		   ft_lstmap.c \
-		   ft_lstnew \
+		   ft_lstnew.c \
 		   ft_lstsize.c \
 
 OBJ 	= $(SRC:.c=.o) # OBJ é igual aos ficheiros no SRC com a extensao .o
