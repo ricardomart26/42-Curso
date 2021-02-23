@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:41:48 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/15 16:24:19 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/23 19:17:28 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ static char	*ft_strndup(const char *s, size_t n)
 	char	*str;
 	size_t	c;
 
-	str = (char *)malloc(sizeof(char) * n + 1);
-	if (str == NULL)
+	if (!s)
+		return (NULL);
+	str = (char *)malloc(n + 1);
+	if (!str)
 		return (NULL);
 	c = 0;
 	while (c < n)
@@ -56,10 +58,12 @@ char		**ft_split(char const *s, char c)
 	char	**tab;
 	int		k;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	k = 0;
 	tab = (char **)malloc(sizeof(char *) * (ft_cntwrd(s, c)) + 1);
-	if (tab == NULL || !s || c == '\0')
+	if (!tab || !s)
 		return (NULL);
 	while (s[i])
 	{
