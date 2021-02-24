@@ -6,52 +6,19 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:42:57 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/22 17:55:36 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/24 15:43:06 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*
-static t_list	*insert_head(t_list **head, t_list *insert)
-{
-	insert->next = *head;
-	*head = insert;
-	return (insert);
-}
 
-static t_list	*insert_value(int value)
-{
-	t_list *temp;
-
-	temp = (t_list *)malloc(sizeof(t_list));
-	temp->content = value;
-	temp->next = NULL;
-	return (temp);
-}
-*/
-
-t_list				*ft_lstlast(t_list *lst)
-{
-	t_list *temp;
-
-	temp = (t_list *)malloc(sizeof(t_list));
-	if (temp == NULL)
-		return (NULL);
-	temp = lst;
-	while (temp != NULL)
-		temp = temp->next;
-	return (temp);
-}
-
-/*
 t_list	*ft_lstlast(t_list *lst)
 {
 	while (lst)
 	{
-		if (!lst->next)
+		if (lst->next == NULL)
 			return (lst);
 		lst = lst->next;
 	}
 	return (lst);
 }
-*/

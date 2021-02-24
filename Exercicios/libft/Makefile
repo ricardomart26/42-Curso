@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/02/24 20:16:53 by rimartin          #+#    #+#              #
+#    Updated: 2021/02/24 20:22:16 by rimartin         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME 	= 	libft.a
 
 SRC		= 	ft_atoi.c \
@@ -22,7 +34,6 @@ SRC		= 	ft_atoi.c \
 			ft_putstr_fd.c \
 			ft_split.c \
 			ft_strchr.c \
-			ft_strcmp.c \
 			ft_strdup.c \
 			ft_strjoin.c \
 			ft_strlcat.c \
@@ -47,32 +58,32 @@ SRCBON 	=  ft_lstadd_back.c \
 		   ft_lstnew.c \
 		   ft_lstsize.c \
 
-OBJ 	= $(SRC:.c=.o) # OBJ é igual aos ficheiros no SRC com a extensao .o
+OBJ 	= $(SRC:.c=.o)
+
 OBJBON 	= $(SRCBON:.c=.o)
-CC = gcc
-HEADER = libft.h
-CFLAGS = -Wall -Werror -Wextra
 
-all: $(NAME)
+CC		= gcc -Wall -Werror -Wextra
 
-$(NAME) : $(OBJ) # Ar e para criar um arquivo
-			ar rcs $@ $^
+HEADER	= libft.h
 
-bonus: $(OBJBON) $(OBJ)
-			ar rcs $@ $^
+all		: $(NAME)
 
+$(NAME) : $(OBJ) $(HEADER)
+			ar -rcs $@ $^
+			ranlib $(NAME)
 
-clean: # Vai limpar os object files
+bonus	: $(OBJBON) $(OBJ)
+			ar -rcs $(NAME) $(OBJBON)
+
+clean	:
 			rm -rf $(OBJ) $(OBJBON)
 
-fclean: clean # Vai limpar tudo
+fclean	: clean
 			rm -f $(NAME)
 
-re: fclean $(NAME)
+re		: fclean $(NAME)
 
-rebonus: fclean bonus
-
-
+rebonus	: fclean bonus
 
 # TESTAR E DEPOIS APAGAR
 
@@ -80,7 +91,7 @@ run: bonus
 	sh ./test/run.sh
 
 so:
-	$(CC) -fPIC $(CFLAGS) $(SRC)
+	$(CC) -fPIC $(SRC)
 	gcc -shared -o libft.so $(OBJ)
 
-.PHONY: all, clean, fclean, re	#Para dizer que nao é um ficheiro
+.PHONY: all, clean, fclean, re, rebonus,

@@ -69,3 +69,9 @@ t_list			*ft_lstnew(void *content);
 int				ft_lstsize(t_list *lst);
 
 #endif
+
+
+
+
+
+
