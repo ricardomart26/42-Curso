@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:15:28 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/24 20:23:46 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/25 15:23:29 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *newlst;
+	t_list *new;
+	t_list *first;
 
-	newlst = malloc(sizeof(t_list));
-	if (!newlst)
+	first = NULL;
+	while (lst)
 	{
-		del(lst);
-		free(lst);
-		return (0);
-	}
-	while (lst != NULL)
-	{
-		newlst = f(lst->content);
-		newlst = lst->next;
+		if (!(new = ft_lstnew(f(lst->content))))
+		{
+			ft_lstclear(&first, del);
+			return (0);
+		}
+		ft_lstadd_back(&first, new);
 		lst = lst->next;
 	}
-	return (newlst);
+	return (first);
 }

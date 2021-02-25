@@ -6,7 +6,7 @@
 #    By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/24 20:16:53 by rimartin          #+#    #+#              #
-#    Updated: 2021/02/24 20:22:16 by rimartin         ###   ########.fr        #
+#    Updated: 2021/02/25 15:36:17 by rimartin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,21 +62,21 @@ OBJ 	= $(SRC:.c=.o)
 
 OBJBON 	= $(SRCBON:.c=.o)
 
-CC		= gcc -Wall -Werror -Wextra
+CC		= gcc -Wall -Werror -Wextra -I.
 
 HEADER	= libft.h
 
 all		: $(NAME)
 
-$(NAME) : $(OBJ) $(HEADER)
-			ar -rcs $@ $^
+$(NAME) : $(OBJ)
+			ar rcs $@ $^
 			ranlib $(NAME)
 
 bonus	: $(OBJBON) $(OBJ)
-			ar -rcs $(NAME) $(OBJBON)
+			ar rcs $(NAME) $(OBJBON) $(OBJ)
 
 clean	:
-			rm -rf $(OBJ) $(OBJBON)
+			rm -f $(OBJ) $(OBJBON)
 
 fclean	: clean
 			rm -f $(NAME)
@@ -85,13 +85,4 @@ re		: fclean $(NAME)
 
 rebonus	: fclean bonus
 
-# TESTAR E DEPOIS APAGAR
-
-run: bonus
-	sh ./test/run.sh
-
-so:
-	$(CC) -fPIC $(SRC)
-	gcc -shared -o libft.so $(OBJ)
-
-.PHONY: all, clean, fclean, re, rebonus,
+.PHONY: all clean bonus clean fclean re rebonus

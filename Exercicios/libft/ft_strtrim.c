@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 17:30:53 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/23 16:41:10 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/25 15:25:54 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,3 @@ char		*ft_strtrim(char const *s1, char const *set)
 	str[i] = 0;
 	return (str);
 }
-

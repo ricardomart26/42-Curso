@@ -6,7 +6,7 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 13:42:18 by rimartin          #+#    #+#             */
-/*   Updated: 2021/02/19 19:21:54 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/02/25 15:25:33 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,3 @@ void		*ft_memmove(void *dst, const void *src, size_t len)
 		ft_memcpy(dst, src, len);
 	return (dst);
 }
-
