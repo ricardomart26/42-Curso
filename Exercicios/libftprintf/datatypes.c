@@ -56,13 +56,13 @@ char utoa(unsigned u, unsigned size)
   return (str);
 }
 
-void pointer(char *ptr)
+void pointer(void *ptr)
 {
   char *temp;
   int c;
 
   c = 0;
-  *temp = &ptr;
+  *temp = (char *)&ptr;
   while (temp != '\0')
   {
     write(1, &temp[c], 1);

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/04 15:19:22 by rimartin          #+#    #+#             */
-/*   Updated: 2021/03/04 17:30:09 by rimartin         ###   ########.fr       */
+/*   Created: 2021/03/04 17:32:49 by rimartin          #+#    #+#             */
+/*   Updated: 2021/03/04 17:32:51 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int		ft_strlen(char *src)
 {

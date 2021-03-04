@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/04 17:32:33 by rimartin          #+#    #+#             */
-/*   Updated: 2021/03/04 18:51:32 by rimartin         ###   ########.fr       */
+/*   Created: 2021/03/04 17:32:40 by rimartin          #+#    #+#             */
+/*   Updated: 2021/03/04 17:32:42 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
+#ifndef _GET_NEXT_LINE_BONUS_
+# define _GET_NEXT_LINE_BONUS_
+# define BUFF_SIZE 1
 
 # include <stdlib.h>
 # include <fcntl.h>
