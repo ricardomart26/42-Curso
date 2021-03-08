@@ -6,67 +6,68 @@
 /*   By: rimartin <rimartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 17:32:24 by rimartin          #+#    #+#             */
-/*   Updated: 2021/03/04 17:32:26 by rimartin         ###   ########.fr       */
+/*   Updated: 2021/03/08 12:19:34 by rimartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-static int	search_char(char *str, char c)
+static int	strsave(int fd, char **line, char **store)
 {
-	while (*str)
-	{
-		if (*str == c)
-			return (1);
-		str++;
-	}
-	return (0);
-}
+	int			i;
+	char		*temp;
 
-static int	read_line(int fd, char **line, char **str)
-{
-	int					c;
-	char				*temp;
-
-	c = 0;
-	while (str[fd][c] != '\0' || str[fd][c] != '\n')
-		c++;
-	if (str[fd][c] == '\n')
+	i = 0;
+	while (store[fd][i] != '\n' && store[fd][i] != '\0')
+		i++;
+	if (store[fd][i] == '\n')
 	{
-		*line = ft_substr(str[fd], 0, c);
-		temp = ft_substr(str[fd], c + 1, ft_strlen(str[fd] - c));
-		free(str[fd]);
-		str[fd] = temp;
+		*line = ft_substr(store[fd], 0, i);
+		temp = ft_substr(store[fd], i + 1, ft_strlen(store[fd]) - i);
+		free(store[fd]);
+		store[fd] = temp;
 		return (1);
 	}
 	else
 	{
-		*line = ft_strdup(str[fd]);
-		free(str[fd]);
-		str[fd] = 0;
+		*line = ft_strdup(store[fd]);
+		free(store[fd]);
+		store[fd] = 0;
 		return (0);
 	}
 }
 
+static int	returns(int fd, char **line, char **store, int readcount)
+{
+	if (readcount == -1)
+		return (-1);
+	if (!(readcount) && store[fd] == NULL)
+	{
+		*line = ft_strdup("");
+		return (0);
+	}
+	return (strsave(fd, line, store));
+}
+
 int			get_next_line(int fd, char **line)
 {
-	static char			*str[100000];
-	int					size;
-	char				buff[BUFF_SIZE + 1];
-	char				*temp;
+	static char	*store[100000];
+	char		buff[BUFFER_SIZE + 1];
+	char		*temp;
+	int			readcount;
 
-	if (fd < 0 || line == NULL || BUFF_SIZE <= 0)
+	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
-	while (((search_char(buff, '\n'))) && (size = read(fd, buff, BUFF_SIZE)))
+	while ((readcount = read(fd, buff, BUFFER_SIZE)) > 0)
 	{
-		buff[size] = '\0';
-		if (!str[fd])
-			str[fd] = newstr(1);
-		temp = ft_strjoin(str[fd], buff);
-		free(str[fd]);
-		str[fd] = temp;
+		buff[readcount] = '\0';
+		if (!store[fd])
+			store[fd] = ft_strdup("");
+		temp = ft_strjoin(store[fd], buff);
+		free(store[fd]);
+		store[fd] = temp;
+		if ((ft_strchr(store[fd], '\n')))
+			break ;
 	}
-	if (size < 0 || str[fd] == NULL)
-		return (-1);
-	return (read_line(fd, line, &str[fd]));
+	return (returns(fd, line, store, readcount));
 }
