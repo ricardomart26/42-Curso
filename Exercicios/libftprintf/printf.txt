@@ -1,5 +1,0 @@
-printf - 
-o que é variadic functions
-
-Nome do programa libftprintf.a
-makefile - all clean fclean re bonus
